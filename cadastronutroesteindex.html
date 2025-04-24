@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cadastro de Interesse - Nutrição Animal</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    :root {
+      --nutroeste-green: #4C8C2B;
+      --nutroeste-yellow: #F1C40F;
+    }
+    .btn {
+      background-color: var(--nutroeste-green);
+      color: white;
+      padding: 16px;
+      font-size: 18px;
+      border-radius: 8px;
+      width: 100%;
+      text-align: center;
+      font-weight: bold;
+      transition: background-color 0.3s;
+    }
+    .btn:hover {
+      background-color: #3b7020;
+    }
+  </style>
+  <script>
+    function enviarCadastro() {
+      const nome = document.querySelector('[name="nome"]').value;
+      const categoria = document.querySelector('[name="categoria"]').value;
+      const peso = document.querySelector('[name="peso"]').value;
+      const sistema = document.querySelector('[name="sistema"]').value;
+      const dieta = document.querySelector('[name="dieta"]').value;
+      const whatsapp = document.querySelector('[name="whatsapp"]').value;
+
+      const mensagem = `Olá, me chamo ${nome}.%0A` +
+        `Categoria do animal: ${categoria}%0A` +
+        `Peso do animal: ${peso} kg%0A` +
+        `Sistema de criação: ${sistema}%0A` +
+        `Tipo de dieta: ${dieta}%0A` +
+        `WhatsApp: ${whatsapp}`;
+
+      const link = `https://wa.me/5562981347799?text=${mensagem}`;
+      window.open(link, '_blank');
+    }
+  </script>
+</head>
+<body class="bg-[var(--nutroeste-yellow)] min-h-screen flex items-center justify-center p-4">
+  <div class="bg-white p-8 rounded-2xl shadow-lg max-w-xl w-full">
+    <div class="bg-white mb-6 flex items-center justify-center">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSS2ww8GDyh3eQQMdBoNPFLxk9jdE4uV83XHg&s" alt="Logo Nutroeste" class="w-3/4 h-40 object-contain">
+    </div>
+    <h1 class="text-2xl font-bold mb-4 text-[var(--nutroeste-green)] text-center">Cadastre-se para uma Nutrição Animal Personalizada</h1>
+    <form class="space-y-4" onsubmit="event.preventDefault(); enviarCadastro();">
+      <div>
+        <label class="block mb-1 font-medium text-[var(--nutroeste-green)]">Nome do Pecuarista</label>
+        <input type="text" name="nome" class="w-full border p-2 rounded" required>
+      </div>
+
+      <div>
+        <label class="block mb-1 font-medium text-[var(--nutroeste-green)]">Categoria do Animal</label>
+        <select name="categoria" class="w-full border p-2 rounded" required>
+          <option value="">Selecione</option>
+          <option>Boi</option>
+          <option>Vaca</option>
+          <option>Novilha</option>
+          <option>Garrote</option>
+          <option>Bezerro</option>
+          <option>Bezerra</option>
+        </select>
+      </div>
+
+      <div>
+        <label class="block mb-1 font-medium text-[var(--nutroeste-green)]">Peso do Animal (kg)</label>
+        <input type="number" name="peso" class="w-full border p-2 rounded" required>
+      </div>
+
+      <div>
+        <label class="block mb-1 font-medium text-[var(--nutroeste-green)]">Sistema de Criação</label>
+        <select name="sistema" class="w-full border p-2 rounded" required>
+          <option value="">Selecione</option>
+          <option>A pasto</option>
+          <option>Confinamento</option>
+          <option>Semi-confinamento</option>
+        </select>
+      </div>
+
+      <div>
+        <label class="block mb-1 font-medium text-[var(--nutroeste-green)]">Tipo de Dieta</label>
+        <select name="dieta" class="w-full border p-2 rounded" required>
+          <option value="">Selecione</option>
+          <option>Mineral Aditivado</option>
+          <option>Mineral para Mistura</option>
+          <option>Mineral pronto uso com ureia</option>
+          <option>Mineral pronto uso sem ureia</option>
+          <option>Núcleo</option>
+          <option>Concentrado</option>
+          <option>Proteico Energético</option>
+          <option>Proteinado</option>
+          <option>Ração/Dieta total</option>
+        </select>
+      </div>
+
+      <div>
+        <label class="block mb-1 font-medium text-[var(--nutroeste-green)]">WhatsApp</label>
+        <input type="tel" name="whatsapp" class="w-full border p-2 rounded" required>
+      </div>
+
+      <button type="submit" class="btn">
+        Enviar Cadastro
+      </button>
+    </form>
+  </div>
+</body>
+</html>
